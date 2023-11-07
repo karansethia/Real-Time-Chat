@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>ChatbotGPT</title>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="header">
+        <h1>say hello to our <span>DiggletGPT</span></h1>
+        <p>he'll dig up the information you need</p>
+      </div>
+      <div class="chatbox">
+        <ul id="chat">
+          <li class="chatText responsemsg">Hi! Ask me anything</li>
+        </ul>
+        <form id="prompt" class="prompt">
+          <input
+            type="text"
+            placeholder="dig about McLaren P1"
+            id="promptinput"
+          />
+          <button id="submitBtn">
+            <img src="./send.png" alt="" srcset="" />
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
