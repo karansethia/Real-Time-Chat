@@ -11,16 +11,15 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+/* This code block is handling the connection event when a client socket connects to the server. */
 io.on('connection', socket => {
   console.log(socket.id);
   socket.on("prompt-input",async(input)=>{
     console.log(input);
-    //openai response and save to mongodb here
     await Chat.create({role: "customer", message: input})
     const response = await connectAi(input);
     io.emit("openai-response",response)
     await Chat.create({role:"assistant", message: response})
-    // const replyMsg = input + " this is reply";
   })
 })
 
@@ -32,6 +31,10 @@ app.post('/',(req,res)=> {
 })
 
 const port = process.env.PORT || 3300
+/**
+ * The function `startServer` connects to a MongoDB database and starts a server listening on a
+ * specified port.
+ */
 const startServer = async() => {
   try {
     await connect(process.env.MONGO_URI);

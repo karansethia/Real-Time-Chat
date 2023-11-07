@@ -7,6 +7,9 @@ socket.on("connect",()=>{
   console.log(socket.id);
 })
 //socket events
+/* The code block `socket.on("openai-response", (replyTxt) => { ... })` is an event listener that
+listens for the "openai-response" event emitted by the server. When the event is triggered, the
+callback function is executed. */
 socket.on("openai-response",(replyTxt) => {
   console.log(replyTxt);
   //openai response recieved here
@@ -19,7 +22,7 @@ socket.on("openai-response",(replyTxt) => {
   list.scrollTop = list.scrollHeight;
 })
 
-//button event listener
+/* This code block is handling the submission of a prompt input by the user. */
 submitBtn.addEventListener('click',(e)=> {
   e.preventDefault();
   const promptInput = promptField.value;
